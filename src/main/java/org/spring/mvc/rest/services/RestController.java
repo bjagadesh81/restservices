@@ -28,7 +28,7 @@ public class RestController {
 	@RequestMapping(value = "shop/{barcode}", method = RequestMethod.GET)
 	@ResponseBody
 	public Product getProductByBarCode(@PathVariable String barcode) {
-		return onlineShop.findProductByBarCode(Integer.valueOf(barcode));
+		return onlineShop.findProductByBarCode(barcode);
 	}
 	
 	@RequestMapping(value = "shop/create", method = RequestMethod.PUT)
