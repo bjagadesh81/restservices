@@ -65,9 +65,10 @@ public class OnlineShopImp implements OnlineShop {
 	 */
 	@Override
 	public boolean updateProduct(Product product) {
-		Product existingProduct = tempMap.get(product.getBarcode());
+		Product existingProduct = findProductByBarCode(String.valueOf(product.getBarcode()));
 		existingProduct.setName(product.getName());
 		existingProduct.setDescription(product.getDescription());
+		em.merge(existingProduct);
 		return true;
 	}
 
@@ -81,6 +82,10 @@ public class OnlineShopImp implements OnlineShop {
 	@Override
 	public boolean deleteProduct(Product product) {
 		tempMap.remove(product.getBarcode());
+		Product existingProduct = findProductByBarCode(String.valueOf(product.getBarcode()));
+		if(existingProduct != null){
+			em.remove(existingProduct);
+		}
 		return true;
 	}
 
