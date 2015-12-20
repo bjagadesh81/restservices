@@ -6,7 +6,7 @@ public interface OnlineShop {
 
 	boolean createProduct(Product product);
 	
-	Product findProductByBarCode(int barcode);
+	Product findProductByBarCode(String barcode);
 	
 	boolean updateProduct(Product product);
 	
