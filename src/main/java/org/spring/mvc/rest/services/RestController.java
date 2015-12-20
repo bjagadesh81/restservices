@@ -36,4 +36,16 @@ public class RestController {
 		onlineShop.createProduct(product);
 		return new ResponseEntity<String>("New Product Created", HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "shop/update", method = RequestMethod.POST)
+	public ResponseEntity<String> updateProduct(@RequestBody Product product){
+		onlineShop.updateProduct(product);
+		return new ResponseEntity<String>("Product Updated", HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "shop/delete", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteProduct(@RequestBody Product product){
+		onlineShop.deleteProduct(product);
+		return new ResponseEntity<String>("Product deleted from DB", HttpStatus.OK);
+	}
 }

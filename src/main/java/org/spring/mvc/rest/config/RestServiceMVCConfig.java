@@ -47,7 +47,6 @@ public class RestServiceMVCConfig extends WebMvcConfigurerAdapter {
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(emf);
-
 		return transactionManager;
 	}
 
